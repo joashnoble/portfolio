@@ -71,10 +71,12 @@ async function handleContact(request, env) {
 
   // Environment variables
   if (!env.RESEND_API_KEY || !env.DESTINATION_EMAIL) {
+    console.error("Contact form configuration error: missing environment variables.");
+
     return jsonResponse(
       {
         message:
-          "Contact form isn't configured yet — missing RESEND_API_KEY or DESTINATION_EMAIL.",
+          "Contact form isn't configured yet. Please try again later.",
       },
       500
     );
