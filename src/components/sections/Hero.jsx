@@ -52,7 +52,7 @@ export default function Hero({ c }) {
         
         {/* Technology logos */}
         <div className="mt-14">
-          <div className="flex flex-wrap gap-10">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-10">
             {heroSkills.map((skill) => (
               <img
                 key={skill.name}
