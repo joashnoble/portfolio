@@ -4,7 +4,7 @@ My personal portfolio website showcasing my experience, technical skills, select
 
 ## 🌐 Live Website
 
-**[Your Portfolio](https://joashnoble.dev)**
+**[My Portfolio](https://joashnoble.dev)**
 
 ## ✨ Features
 
