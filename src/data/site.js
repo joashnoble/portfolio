@@ -184,7 +184,7 @@ export const academicTimeline = [
 
 export const experienceTimeline = [
   {
-    title: "Senior Software Engineer / Lead Programmer",
+    title: "Senior Software Engineer / Full-stack Developer",
     org: "Bycodeworks",
     period: "August 2021 – August 2026",
     points: [
