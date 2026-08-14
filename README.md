@@ -8,14 +8,40 @@ here fits on free plans.
 ## What's in this folder
 
 ```
-src/main.jsx                  → mounts the React app
-src/components/Portfolio.jsx  → the entire site — all your content lives here
-src/index.css                 → Tailwind's @tailwind directives
-index.html                    → Vite's HTML entry point
-functions/api/contact.js      → Cloudflare Pages Function — handles POST /api/contact
+src/main.jsx                        → mounts the React app
+src/App.jsx                         → page shell — theme state, scroll/nav logic, assembles the sections
+src/data/site.js                    → all your content lives here (profile, projects, skills, timelines, etc.)
+src/index.css                       → Tailwind's @tailwind directives
+
+src/components/layout/
+  Header.jsx                        → sidebar/top nav, mobile menu, theme toggle
+  Footer.jsx                        → footer
+
+src/components/sections/
+  Hero.jsx, About.jsx, Skills.jsx   → landing, bio, skill bars
+  Experience.jsx, Academic.jsx      → work history and education timelines
+  Projects.jsx, Services.jsx        → project cards (open the lightbox) and services offered
+  Contact.jsx                       → contact form, posts to CONTACT_ENDPOINT
+
+src/components/common/
+  Lightbox.jsx                      → zoomable project image viewer
+  Reveal.jsx                        → scroll-in fade/slide wrapper
+  SkillBar.jsx                      → animated skill percentage bar
+  Timeline.jsx                      → shared timeline UI for Experience/Academic
+
+index.html                          → Vite's HTML entry point
+functions/api/contact.js            → Cloudflare Pages Function — handles POST /api/contact
+public/images/                      → avatar, project screenshots, technology logos
+public/Joash_Noble_..._Resume.pdf   → resume served at RESUME_URL
 vite.config.js, tailwind.config.js, postcss.config.js
 package.json
 ```
+
+`src/data/site.js` is the one file you'll edit most — it holds every
+piece of content on the site (name/title/tagline, socials, resume path,
+contact info, about paragraphs, services, skill levels, projects,
+academic/experience timelines, hero tech logos, and nav labels). The
+components just render whatever's in there.
 
 `functions/api/contact.js` is the important part: on Cloudflare Pages,
 any file under `functions/` automatically becomes a route matching its
@@ -69,31 +95,6 @@ message should land in your inbox (check spam the first time; mail from
 `onboarding@resend.dev` sometimes lands there until you have your own
 verified domain).
 
-### Local development
-
-```bash
-npm install
-npm run dev
-```
-
-This runs the Vite dev server for the frontend. The `/api/contact`
-function won't run under plain `npm run dev` (that's Vite, not
-Cloudflare) — to test the function locally too, use Wrangler instead:
-
-```bash
-npm run build
-npx wrangler pages dev dist
-```
-
-Wrangler picks up `functions/` automatically and serves both the built
-site and the API route together, matching production. Create a
-`.dev.vars` file in the project root (already gitignored) with:
-
-```
-RESEND_API_KEY=your_key_here
-DESTINATION_EMAIL=you@example.com
-```
-
 ## Local development
 
 Two workflows, depending on what you're doing:
@@ -106,11 +107,11 @@ npm run dev
 ```
 
 Opens at `http://localhost:5173`. Vite hot-reloads instantly as you edit
-`src/components/Portfolio.jsx` — no rebuild step. The contact form's
-`fetch('/api/contact')` will fail in this mode (there's nothing at that
-route yet — Vite alone doesn't run Cloudflare Functions), but everything
-else — layout, dark mode, animations, images, the lightbox — works
-exactly as it will in production.
+`src/data/site.js` or any component in `src/components/` — no rebuild
+step. The contact form's `fetch('/api/contact')` will fail in this mode
+(there's nothing at that route yet — Vite alone doesn't run Cloudflare
+Functions), but everything else — layout, dark mode, scroll animations,
+images, the project lightbox — works exactly as it will in production.
 
 **Testing the contact form itself**
 
@@ -131,33 +132,34 @@ RESEND_API_KEY=your_key_here
 DESTINATION_EMAIL=you@example.com
 ```
 
-Rebuild (`npm run build`) each time you change `Portfolio.jsx` before
-restarting `wrangler pages dev` — this path doesn't hot-reload the way
-`npm run dev` does.
+Rebuild (`npm run build`) each time you change something under `src/`
+before restarting `wrangler pages dev` — this path doesn't hot-reload
+the way `npm run dev` does.
 
-## Adding your own images
+## Updating content
 
-Don't hotlink or leave the placeholder URLs — drop real files in
-`public/images/` (e.g. `public/images/avatar.jpg`,
-`public/images/project-one.png`), then reference them in
-`Portfolio.jsx` as `/images/avatar.jpg` (a leading slash, no `public`
-in the path — Vite serves everything in `public/` from the site root).
-Update `AVATAR_URL` and each project's `image` field this way.
+Everything on the site — profile info, resume link, socials, contact
+details, about copy, services, skill levels, the project list, and the
+academic/experience timelines — is already filled in and lives in
+`src/data/site.js`. To change something, edit the relevant export
+there rather than the components:
 
-## Things you still need to fill in
+- **`RESUME_URL`** — points at the PDF in `public/`.
+- **`SOCIALS.github` / `SOCIALS.linkedin`** — profile URLs.
+- **`AVATAR_URL`**, **`CONTACT_INFO.email` / `.phone`**.
+- **`projects`** — one entry per project card (title, image, tags,
+  description, optional `url`); opening a card triggers the lightbox.
+- **`skillCategories`** — grouped skills with self-rated percentages.
+- **`experienceTimeline`** / **`academicTimeline`** — feed the
+  Experience and Academic sections via the shared `Timeline` component.
+- **`NAV`** — controls the sidebar/top-nav links and their scroll targets.
 
-`src/components/Portfolio.jsx` has a block of constants near the top
-marked `EDIT ME`:
-
-- **`RESUME_URL`** — link to your resume PDF.
-- **`SOCIALS.github` / `SOCIALS.linkedin`** — your real profile URLs.
-- **`AVATAR_URL`** — currently a generated placeholder; swap for a real photo.
-- **`CONTACT_INFO.email` / `CONTACT_INFO.phone`** — shown in the Contact
-  section with mailto:/tel: links.
-- **`projects`** — 3 placeholder entries with stock colored images. Swap
-  in real work.
-- Skill percentages (`skillCategories`) and stats (`expertiseStats`) are
-  self-rated placeholders — adjust to what's accurate for you.
+To swap a photo or add a new project screenshot, drop the file in
+`public/images/` (e.g. `public/images/avatar.jpeg`,
+`public/images/projects/your-project.png`) and point the matching
+field in `site.js` at `/images/avatar.jpeg` — a leading slash, no
+`public` in the path, since Vite serves everything in `public/` from
+the site root.
 
 ## Notes on what's already wired up
 
@@ -170,7 +172,7 @@ marked `EDIT ME`:
   the viewport.
 - **Back-to-top button** — appears after scrolling, bottom-right.
 - **Timeline markers, project image lightbox, fully responsive layout**
-  — all unchanged from before, just no longer dependent on a PHP backend.
+  — all handled client-side, no backend dependency beyond the contact form.
 
 ## A note on the free tier's limits
 
