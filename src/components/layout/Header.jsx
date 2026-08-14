@@ -33,10 +33,14 @@ export default function Header({
 
   return (
     <>
-      <aside className={`hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:w-56 lg:border-r ${c.border} px-6 py-10 gap-8`}>
+      <aside className={`hidden lg:flex lg:flex-col lg:fixed lg:inset-y-0 lg:left-0 lg:z-50 lg:w-56 lg:border-r ${c.border} ${c.pageBg} px-6 py-10 gap-8`}>
         <div>
           <p className={`font-mono text-xs ${c.muted}`}>~/portfolio</p>
-          <p className="font-semibold mt-1 leading-snug">{profile.name}</p>
+          <img
+            src={dark ? "/images/logo-dark.png" : "/images/logo-light.png"}
+            alt={profile.name}
+            className="h-8 object-contain"
+          />
         </div>
         <nav className="flex flex-col gap-3">{NAV.map((n) => navLink(n.id, n.label))}</nav>
         <div className="mt-auto flex flex-col gap-4">
@@ -52,7 +56,11 @@ export default function Header({
       </aside>
 
       <div className={`lg:hidden sticky top-0 z-40 flex items-center justify-between px-4 py-3 border-b ${c.border} ${c.pageBg}`}>
-        <p className="font-semibold text-sm">{profile.name}</p>
+        <img
+            src={dark ? "/images/logo-dark.png" : "/images/logo-light.png"}
+            alt={profile.name}
+            className="h-8 object-contain"
+          />
         <div className="flex items-center gap-1">
           <button onClick={() => setTheme(dark ? "light" : "dark")} className={`p-2 rounded-md ${c.muted} ${c.hoverText}`} aria-label="Toggle theme">
             {dark ? <Sun size={18} /> : <Moon size={18} />}
