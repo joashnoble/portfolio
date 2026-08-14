@@ -93,6 +93,17 @@ export default function App() {
       const section = document.getElementById(id);
       if (!section) return;
 
+      const firstSection = document.querySelector("main section[id]");
+
+      if (section === firstSection) {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+
+        return;
+      }
+
       const mobileHeader = document.querySelector("[data-mobile-header]");
       const headerOffset = mobileHeader
         ? mobileHeader.getBoundingClientRect().height + 16
