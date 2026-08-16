@@ -53,9 +53,6 @@ export default function Contact({ c, dark }) {
           <a href={`mailto:${CONTACT_INFO.email}`} className={`flex items-center gap-2 ${c.text} ${c.hoverAccent} transition-colors w-fit`}>
             <Mail size={15} className={c.accent} /> {CONTACT_INFO.email}
           </a>
-          <a href={`tel:${CONTACT_INFO.phone.replace(/\s/g, "")}`} className={`flex items-center gap-2 ${c.text} ${c.hoverAccent} transition-colors w-fit`}>
-            <Phone size={15} className={c.accent} /> {CONTACT_INFO.phone}
-          </a>
           <div className={`flex items-center gap-2 ${c.muted}`}>
             <MapPin size={15} className={c.accent} /> {profile.location}
           </div>
