@@ -14,7 +14,7 @@ My personal portfolio website showcasing my experience, technical skills, select
 - Technical skills and technologies
 - Selected projects
 - Contact form
-- REST API integration
+- Serverless contact form API
 - Responsive design for desktop and mobile devices
 
 ## 🛠️ Tech Stack
@@ -27,21 +27,22 @@ My personal portfolio website showcasing my experience, technical skills, select
 - CSS
 - Tailwind CSS
 
+### Backend / Serverless
+
+- Cloudflare Workers
+- `worker.js` for the contact form API
+
 ### Tools & Services
 
 - Git
 - GitHub
-- Composer
 - Vite
+- Cloudflare
 
 ## 📁 Project Structure
 
 ```text
 portfolio/
-├── functions/
-│   └── api/
-│       └── contact.js       # Contact form API
-│
 ├── public/
 │   └── images/              # Portfolio images
 │
@@ -79,6 +80,8 @@ src/
 ├── postcss.config.js
 ├── tailwind.config.js
 ├── vite.config.js
+├── worker.js
+├── wrangler.jsonc
 └── README.md
 ```
 
@@ -90,8 +93,6 @@ Make sure you have the following installed:
 
 - Node.js
 - npm
-- PHP
-- Composer
 
 ### Setup
 
@@ -111,7 +112,50 @@ npm run dev
 
 The portfolio includes a contact form that allows visitors to send inquiries directly through the website.
 
-The form communicates with the Laravel backend through an API endpoint.
+The contact form is handled by a **Cloudflare Worker** using `worker.js`. The Worker provides the API endpoint used by the frontend to submit contact form messages.
+
+### Required Configuration
+
+The contact form requires the following:
+
+- Cloudflare Worker
+- Resend account (resend.com)
+- `RESEND_API_KEY`
+- `DESTINATION_EMAIL`
+- A verified sending domain in Resend
+
+### Environment Variables / Secrets
+
+The Cloudflare Worker requires the following secrets:
+
+| Variable | Description |
+|---|---|
+| `RESEND_API_KEY` | Resend API key used to send contact form emails |
+| `DESTINATION_EMAIL` | Email address where contact form messages are received |
+
+Do **not** commit the actual secret values to the repository.
+
+Add the secrets to the Cloudflare Worker using Wrangler:
+
+```bash
+npx wrangler secret put RESEND_API_KEY
+npx wrangler secret put DESTINATION_EMAIL
+```
+
+When prompted, enter the corresponding values.
+
+For `RESEND_API_KEY`, use a Resend API key with only the permissions required to send emails whenever possible.
+
+## ☁️ Deployment
+
+The portfolio is deployed using **Cloudflare** and consists of a React.js frontend with a serverless Worker handling the contact form API.
+
+Before deploying, make sure the required Cloudflare Worker secrets are configured:
+
+```bash
+npx wrangler secret put RESEND_API_KEY
+npx wrangler secret put DESTINATION_EMAIL
+```
 
 ## 📱 Responsive Design
 
