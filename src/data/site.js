@@ -10,7 +10,7 @@ export const SOCIALS = {
 };
 
 export const AVATAR_URL =
-  "/images/avatar.jpeg";
+  "/images/avatar.png";
 
 export const CONTACT_INFO = {
   email: "noblejjoash@gmail.com",
