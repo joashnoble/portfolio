@@ -14,7 +14,6 @@ export const AVATAR_URL =
 
 export const CONTACT_INFO = {
   email: "noblejjoash@gmail.com",
-  phone: "+63 906 781 9374",
 };
 
 export const CONTACT_ENDPOINT = "/api/contact";
@@ -30,7 +29,7 @@ export const about = {
   subtitle: "A bit about how I work",
   paragraphs: [
     "I’m a Full-Stack Software Engineer with nearly 10 years of professional experience building, maintaining, and improving business applications. I specialize in PHP, Laravel, CodeIgniter, JavaScript, React, WordPress, and MySQL, with experience integrating third-party services such as Stripe, EasyPost, and Auth0.",
-    "Throughout my career, I’ve worked across the full development lifecycle—from understanding client requirements and developing features to API integrations, debugging, code reviews, QA, and system maintenance. I enjoy solving complex problems, improving existing systems, and building practical, reliable software that meets real-world business needs.",
+    "Throughout my career, I’ve worked across the full development lifecycle from understanding client requirements and developing features to API integrations, debugging, code reviews, QA, and system maintenance. I enjoy solving complex problems, improving existing systems, and building practical, reliable software that meets real-world business needs.",
   ],
 };
 
