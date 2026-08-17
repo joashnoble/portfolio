@@ -90,8 +90,8 @@ export default function App() {
     setZoom(1);
   };
 
-  const zoomIn = () => setZoom((value) => Math.min(value + 0.5, 3));
-  const zoomOut = () => setZoom((value) => Math.max(value - 0.5, 1));
+  const zoomIn = () => setZoom((value) => Math.min(value + 0.25, 3));
+  const zoomReset = () => setZoom(1);
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const scrollToSection = (id) => {
@@ -179,7 +179,7 @@ export default function App() {
         project={lightboxProject}
         zoom={zoom}
         onZoomIn={zoomIn}
-        onZoomOut={zoomOut}
+        onZoomReset={zoomReset}
         onClose={closeLightbox}
       />
     </div>
