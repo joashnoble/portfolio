@@ -156,7 +156,7 @@ export const projects = [
       "Investigated production Sentry errors caused by incomplete registration/session state and added safer error handling and redirects.",
       "Fixed an N+1 query issue affecting lesson pages.",
       "Refactored checkout and updated Stripe across systems to use Products/Prices with PaymentIntents.",
-      "Upgraded Laravel from 6.x to 7.x and later 7.x to 8.x while continuing to support existing functionality.",
+      "Upgraded Laravel applications from 6 through 10 while continuing to support existing functionality.",
       "Added new state-specific behavior without breaking the existing states.",
     ],
     impact: [
@@ -202,7 +202,7 @@ export const projects = [
     ownership:
       "Implemented assigned frontend/backend features, UI reskins, permissions fixes, invitation workflows, and payment functionality. I did not lead this project.",
     description:
-      "A collaboration platform similar to Trello where users and clients can manage tasks, comments, attachments, deadlines, teams, and project activity.",
+      "A collaboration platform where users and clients can manage tasks, comments, attachments, deadlines, teams, and project activity.",
     features: [
       "Tasks, comments, attachments, deadlines, and project activity.",
       "Team members, invitations, active/inactive team views, and role filtering.",
