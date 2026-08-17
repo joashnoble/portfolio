@@ -71,14 +71,45 @@ export default function ProjectDetails({
         aria-labelledby="project-details-title"
         className={`relative w-full max-w-5xl max-h-[94vh] overflow-y-auto rounded-xl border ${c.border} ${c.cardBg} shadow-2xl`}
       >
-        {/* Close */}
-        <button
-          onClick={onClose}
-          aria-label="Close project details"
-          className={`absolute top-4 right-4 z-20 p-2 rounded-full ${c.cardBg} border ${c.border} ${c.hoverAccent} transition-colors`}
+        {/* =========================
+            STICKY PROJECT HEADER
+        ========================== */}
+        <div
+          className={`sticky top-0 z-20 ${c.cardBg} border-b ${c.border} px-5 sm:px-7 lg:px-8 py-4`}
         >
-          <X size={18} />
-        </button>
+          <div className="flex items-center justify-between gap-4">
+            <div className="min-w-0">
+              <div className="flex items-center gap-2 mb-1">
+                <span className={`font-mono text-xs ${c.accent}`}>
+                  /project
+                </span>
+
+                {project.featured && (
+                  <span
+                    className={`text-xs font-mono px-2 py-0.5 rounded ${c.accentBg} ${c.accent}`}
+                  >
+                    Featured
+                  </span>
+                )}
+              </div>
+
+              <h2
+                id="project-details-title"
+                className="text-lg sm:text-xl font-bold truncate pr-2"
+              >
+                {project.title}
+              </h2>
+            </div>
+
+            <button
+              onClick={onClose}
+              aria-label="Close project details"
+              className={`shrink-0 p-2 rounded-full border ${c.border} ${c.hoverAccent} transition-colors`}
+            >
+              <X size={18} />
+            </button>
+          </div>
+        </div>
 
         {/* =========================
             IMAGE / GALLERY
@@ -134,29 +165,8 @@ export default function ProjectDetails({
             PROJECT DETAILS
         ========================== */}
         <div className="p-5 sm:p-7 lg:p-8 space-y-7">
-          {/* Header */}
+          {/* Description */}
           <div>
-            <div className="flex items-center gap-2 mb-2">
-              <span className={`font-mono text-xs ${c.accent}`}>
-                /project
-              </span>
-
-              {project.featured && (
-                <span
-                  className={`text-xs font-mono px-2 py-0.5 rounded ${c.accentBg} ${c.accent}`}
-                >
-                  Featured
-                </span>
-              )}
-            </div>
-
-            <h2
-              id="project-details-title"
-              className="text-2xl sm:text-3xl font-bold mb-2"
-            >
-              {project.title}
-            </h2>
-
             <p className={`text-sm leading-relaxed ${c.muted}`}>
               {project.description}
             </p>
