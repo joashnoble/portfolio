@@ -20,7 +20,7 @@ export const CONTACT_ENDPOINT = "/api/contact";
 
 export const profile = {
   name: "Joash Jezreel Lucas Noble",
-  title: "Senior Software Engineer | Full-Stack Developer",
+  title: "Senior Software Engineer / Full-Stack Developer",
   tagline:
     "Full-stack engineer with 9+ years of experience building, maintaining, and improving production business applications, APIs, and third-party integrations.",
   location: "Angeles City, Pampanga, Philippines",
