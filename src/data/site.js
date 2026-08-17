@@ -1,5 +1,5 @@
 import {
-  Briefcase, FolderGit2, Users, Server, Layout, Globe, Plug, Database, Code2, Wrench,
+  Briefcase, FolderGit2, Users, Server, Monitor, Layout, Globe, Plug, Database, Code2, Wrench, GitBranch, 
 } from "lucide-react";
 
 export const RESUME_URL = "/Joash_Noble_Senior_Software_Engineer_Resume.pdf";
@@ -20,16 +20,17 @@ export const CONTACT_ENDPOINT = "/api/contact";
 
 export const profile = {
   name: "Joash Jezreel Lucas Noble",
-  title: "Senior Software Engineer / Full-stack Developer",
-  tagline: "Full-stack software engineer building reliable, scalable web applications and business solutions.",
+  title: "Senior Software Engineer | Full-Stack Developer",
+  tagline:
+    "Full-stack engineer with 9+ years of experience building, maintaining, and improving production business applications, APIs, and third-party integrations.",
   location: "Angeles City, Pampanga, Philippines",
 };
 
 export const about = {
-  subtitle: "A bit about how I work",
+  subtitle: "Production systems, business logic, and integrations",
   paragraphs: [
-    "I’m a Full-Stack Software Engineer with nearly 10 years of professional experience building, maintaining, and improving business applications. I specialize in PHP, Laravel, CodeIgniter, JavaScript, React, WordPress, and MySQL, with experience integrating third-party services such as Stripe, EasyPost, and Auth0.",
-    "Throughout my career, I’ve worked across the full development lifecycle from understanding client requirements and developing features to API integrations, debugging, code reviews, QA, and system maintenance. I enjoy solving complex problems, improving existing systems, and building practical, reliable software that meets real-world business needs.",
+    "I’m a Senior Full-Stack Software Engineer with 9+ years of experience building, maintaining, and improving production business applications. My primary stack is PHP, Laravel, JavaScript, React, MySQL, and REST APIs.",
+    "I’ve worked on payment, authentication, shipping, email, analytics, notarization, HR/payroll, accounting, healthcare, education, and client collaboration systems. I’m strongest at understanding existing systems, implementing business requirements, troubleshooting production issues, integrating external services, and delivering reliable features from development through QA and deployment.",
   ],
 };
 
@@ -37,25 +38,25 @@ export const services = [
   {
     title: "Full-Stack Web Development",
     description:
-      "Build and maintain business applications using PHP, Laravel, CodeIgniter, JavaScript, React, Vue, and MySQL.",
+      "Build and improve production business applications with PHP, Laravel, JavaScript, React, Vue, MySQL, and REST APIs.",
     icon: Server,
   },
   {
-    title: "Third-Party API Integration",
+    title: "API & Third-Party Integrations",
     description:
-      "Integrate payment, shipping, authentication, analytics, communication, and other third-party services into existing applications.",
+      "Connect payments, authentication, shipping, email, analytics, notarization, and other external services to existing applications.",
     icon: Plug,
   },
   {
-    title: "System Maintenance & Customization",
+    title: "Legacy System Modernization",
     description:
-      "Maintain existing applications, troubleshoot issues, implement client-specific requirements, and improve system functionality.",
+      "Upgrade frameworks, refactor existing functionality, improve performance, and safely extend established production systems.",
     icon: Wrench,
   },
   {
-    title: "Code Review & Technical Leadership",
+    title: "Code Review, QA & Release Support",
     description:
-      "Review pull requests, coordinate development tasks, perform QA, and help ensure reliable and maintainable releases.",
+      "Review pull requests, troubleshoot issues, validate functionality, coordinate development work, and support stable releases.",
     icon: Users,
   },
 ];
@@ -63,38 +64,56 @@ export const services = [
 export const skillCategories = [
   {
     title: "Backend & Database",
-    icon: Database,
+    icon: Server,
     skills: [
-      { name: "PHP", level: 90 },
-      { name: "Laravel", level: 90 },
-      { name: "CodeIgniter", level: 85 },
-      { name: "MySQL", level: 85 },
-      { name: "Database Design", level: 82 },
-      { name: "REST APIs", level: 85 },
+      { name: "PHP" },
+      { name: "Laravel" },
+      { name: "CodeIgniter" },
+      { name: "MySQL" },
+      { name: "SQL" },
+      { name: "REST APIs" },
     ],
   },
   {
     title: "Frontend Development",
-    icon: Code2,
+    icon: Monitor,
     skills: [
-      { name: "JavaScript", level: 85 },
-      { name: "React", level: 78 },
-      { name: "Vue", level: 75 },
-      { name: "HTML / CSS", level: 90 },
-      { name: "Bootstrap", level: 85 },
-      { name: "Tailwind CSS", level: 85 },
+      { name: "JavaScript" },
+      { name: "React" },
+      { name: "Vue" },
+      { name: "jQuery" },
+      { name: "AJAX" },
+      { name: "HTML / CSS" },
+      { name: "Tailwind CSS" },
+      { name: "Bootstrap" },
     ],
   },
   {
-    title: "Integrations, Tools & Practices",
-    icon: Wrench,
+    title: "Integrations & APIs",
+    icon: Plug,
     skills: [
-      { name: "WordPress", level: 87 },
-      { name: "API Integration", level: 90 },
-      { name: "Third-Party Integrations", level: 90 },
-      { name: "Git", level: 88 },
-      { name: "Code Review", level: 90 },
-      { name: "QA & Debugging", level: 88 },
+      { name: "Stripe" },
+      { name: "Auth0" },
+      { name: "EasyPost" },
+      { name: "BlueNotary" },
+      { name: "Proof" },
+      { name: "SendGrid" },
+      { name: "CleverTap" },
+      { name: "VWO" },
+    ],
+  },
+  {
+    title: "Engineering Practices",
+    icon: GitBranch,
+    skills: [
+      { name: "Git" },
+      { name: "Code Review" },
+      { name: "QA & Testing" },
+      { name: "Debugging" },
+      { name: "System Maintenance" },
+      { name: "API Integration" },
+      { name: "Sentry" },
+      { name: "Deployment" },
     ],
   },
 ];
@@ -102,67 +121,239 @@ export const skillCategories = [
 export const projects = [
   {
     title: "Traffic School System",
+    featured: true,
     image: "/images/projects/traffic-school-system.png",
-    tags: ["Laravel", "MySQL", "Stripe", "EasyPost", "Auth0"],
+    tags: ["Laravel", "MySQL", "JavaScript", "jQuery"],
+    role:
+      "Senior Full-Stack Engineer; later Lead Programmer. Maintained and enhanced an established production platform rather than owning the original product.",
+    ownership:
+      "Implemented features, fixes, integrations, refactors, upgrades, and state-specific functionality. Later assigned work to and reviewed/QA’d changes from a team of 3 developers.",
     description:
-      "Maintained and enhanced a production business application, integrating Stripe, EasyPost, and Auth0 while implementing client requirements and system improvements.",
-    url: null,
+      "A production platform for drivers who need to complete state-approved traffic school lessons and exams after receiving a citation or case. Users can complete lessons across devices, pass a final exam, pay online, and receive a certificate for their case.",
+    features: [
+      "Online lessons, exams, final exam, checkout, and certificate workflow.",
+      "State-specific courses and business rules for California, Florida, Texas, Nevada, and Virginia.",
+      "Case Status administration with search, sorting, bulk actions, submission tracking, archiving, review status, and notes.",
+      "Localization for Chinese, Spanish, and English.",
+      "Payment loading/error handling to prevent duplicate charges.",
+    ],
+    technologies: ["Laravel", "PHP", "MySQL", "JavaScript", "jQuery", "AJAX", "REST APIs"],
+    integrations: [
+      "Stripe — payment processing and PaymentIntents",
+      "Auth0 — authentication and Google social login",
+      "EasyPost — shipping",
+      "BlueNotary / Proof — notarization workflow and webhooks",
+      "CleverTap — marketing journeys",
+      "VWO — A/B testing",
+      "SendGrid — transactional email",
+      "Reviews.io — review workflow",
+      "Abstract API — email validation",
+      "Python REST API — DMV functionality",
+    ],
+    architecture:
+      "Established Laravel monolith with server-rendered application flows, AJAX/jQuery interactions, MySQL persistence, and external services connected through APIs and webhooks.",
+    challenges: [
+      "Investigated production Sentry errors caused by incomplete registration/session state and added safer error handling and redirects.",
+      "Fixed an N+1 query issue affecting lesson pages.",
+      "Refactored checkout and updated Stripe across systems to use Products/Prices with PaymentIntents.",
+      "Upgraded Laravel from 6.x to 7.x and later 7.x to 8.x while continuing to support existing functionality.",
+      "Added new state-specific behavior without breaking the existing states.",
+    ],
+    impact: [
+      "Production platform supporting 5 U.S. states.",
+      "Worked within an established application already used by customers in production.",
+      "Later coordinated development work and QA for a team of 3 developers.",
+    ],
+  },
+  {
+    title: "Church & Enrollment System",
+    featured: true,
+    image: "/images/projects/church-system.png",
+    gallery: ["/images/projects/church-system.png", "/images/projects/enrollment-system.png"],
+    tags: ["Laravel", "PHP", "MySQL", "jQuery", "Tailwind CSS"],
+    role: "Full-Stack Engineer; built the system from start to finish.",
+    ownership:
+      "Designed and implemented the application, its CRUD modules, reporting, and a separate enrollment workspace.",
+    description:
+      "A church management and enrollment platform built from the ground up to manage members, missions, giving, basic income/expense accounting, and academic enrollment workflows.",
+    features: [
+      "Member, mission, and giving management.",
+      "Basic accounting for income and expenses with reporting.",
+      "Separate enrollment workspace for subjects, curriculum, classes, students, teachers, schedules, grades, and enrollments.",
+    ],
+    technologies: ["Laravel", "PHP", "MySQL", "JavaScript", "jQuery", "Tailwind CSS"],
+    architecture:
+      "Laravel application with a separate enrollment workspace sharing the system’s authentication and data layer.",
+    challenges: [
+      "Designed the system around two distinct workspaces while keeping the application maintainable.",
+      "Implemented a broad set of administrative CRUD workflows and reporting requirements.",
+    ],
+    impact: [
+      "Built the core church system end-to-end.",
+      "Enrollment workspace was ongoing when the engagement ended.",
+    ],
   },
   {
     title: "Client Drive System",
+    featured: true,
     image: "/images/projects/client-drive-system.jpg",
-    tags: ["Laravel", "MySQL", "React", "Stripe"],
+    tags: ["React", "Laravel", "MySQL", "Stripe"],
+    role: "Full-Stack Engineer; contributor to development.",
+    ownership:
+      "Implemented assigned frontend/backend features, UI reskins, permissions fixes, invitation workflows, and payment functionality. I did not lead this project.",
     description:
-      "Contributed to a client management platform combining task management, client communication, and payment functionality, including Stripe integration.",
-  },
-  {
-    title: "WordPress Marketing Application",
-    image: "/images/projects/wordpress-marketing-application.png",
-    tags: ["WordPress", "PHP", "JavaScript", "CSS"],
-    description:
-      "Maintained and enhanced the Traffic School System's WordPress marketing website by implementing new features, updates, and client-requested changes.",
+      "A collaboration platform similar to Trello where users and clients can manage tasks, comments, attachments, deadlines, teams, and project activity.",
+    features: [
+      "Tasks, comments, attachments, deadlines, and project activity.",
+      "Team members, invitations, active/inactive team views, and role filtering.",
+      "Client-facing collaboration workflows.",
+      "Stripe-powered payments.",
+    ],
+    technologies: ["React", "Laravel", "MySQL", "JavaScript", "Tailwind CSS", "Bootstrap", "DaisyUI"],
+    integrations: ["Stripe — primary payment option"],
+    architecture:
+      "React frontend backed by Laravel, with shared components supporting active and inactive team views and role-based permissions.",
+    challenges: [
+      "Converted the existing Tailwind-based UI to Bootstrap for a required reskin.",
+      "Fixed invitation behavior for active and inactive teams and added resend/cancel workflows.",
+      "Resolved permission issues using Spatie Laravel Permission.",
+      "Added separate inactive-team routes/components while reusing shared child components.",
+    ],
+    impact: [
+      "Contributed to a production collaboration platform with both client and user workflows.",
+      "Strengthened experience working across a React + Laravel codebase.",
+    ],
   },
   {
     title: "HR, Scheduling & Payroll System",
+    featured: true,
     image: "/images/projects/hr-scheduling-payroll-system.png",
-    tags: ["PHP", "Codeigniter", "MySQL", "Ajax", "Jquery", "Payroll"],
+    tags: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX"],
+    role: "Full-Stack Engineer responsible for maintaining and continuing development of an established system.",
+    ownership:
+      "Took over the system after the original developer left, maintained it, added modules, handled client-specific customizations, and continued development.",
     description:
-      "Customized and maintained HR, scheduling, and payroll systems based on client requirements, including Philippine statutory payroll updates for SSS, Pag-IBIG, PhilHealth, and withholding tax.",
+      "An internal HR and payroll system that manages employee timekeeping, scheduling, leave, personnel records, and payroll calculations.",
+    features: [
+      "Scheduling and barcode-based time-in/time-out.",
+      "Payroll connected to SSS, PhilHealth, Pag-IBIG, withholding tax, loans, and leaves.",
+      "Client-specific reports and customizations.",
+      "Simplified payroll workflow for processing larger employee groups.",
+    ],
+    technologies: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX", "SQL"],
+    challenges: [
+      "Inherited and maintained an established application after the original developer left.",
+      "Adapted payroll behavior to changing Philippine statutory requirements and client-specific rules.",
+      "Extended an existing standard product while preserving established workflows.",
+    ],
+    impact: [
+      "Maintained HR/payroll systems for 6 clients.",
+      "Supported real operational workflows for scheduling and payroll processing.",
+    ],
   },
   {
-    title: "Clinic Management System",
-    image: "/images/projects/clinic-management-system.png",
-    tags: ["PHP", "Codeigniter", "MySQL", "Ajax", "Jquery"],
+    title: "Business Management System",
+    featured: true,
+    image: "/images/projects/business-management-system.png",
+    tags: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX"],
+    role: "Full-Stack Engineer; created the business-management layer from the existing accounting platform.",
+    ownership:
+      "Implemented additional business modules and customized workflows and reports for client requirements.",
     description:
-      "Maintained a clinic management system used by a private clinic to support day-to-day business and operational processes.",
+      "A business management system built on the existing accounting platform, extending it with operational workflows for purchasing, inventory, jobs, and invoicing.",
+    features: [
+      "Bill of Materials.",
+      "Receiving and purchasing workflows.",
+      "Invoicing.",
+      "Job Orders.",
+      "Variation Orders.",
+      "Client-specific reporting and details.",
+    ],
+    technologies: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX", "SQL"],
+    architecture:
+      "Extended an established accounting application so operational modules could share existing purchasing, sales, inventory, and accounting data.",
+    challenges: [
+      "Extended a mature accounting codebase without replacing the existing core workflows.",
+      "Connected new operational modules to existing business and accounting processes.",
+    ],
+    impact: [
+      "Built the additional business-management modules used by 2 clients.",
+    ],
   },
   {
     title: "Billing & Accounting Systems",
     image: "/images/projects/billing-accounting-system.png",
-    tags: ["PHP", "Codeigniter", "MySQL", "Ajax", "Jquery", "Accounting"],
+    tags: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX"],
+    role: "Full-Stack Engineer maintaining and customizing an established accounting product.",
+    ownership:
+      "Implemented client-specific reports, details, and improvements while maintaining existing billing and accounting workflows.",
     description:
-      "Maintained billing functionality for multiple clients, including customer subsidiaries, statements of accounts, payments, purchasing, sales, and inventory.",
+      "A standard accounting and billing platform covering customer subsidiaries, statements of accounts, payments, purchasing, sales, inventory, and accounting journals.",
+    features: [
+      "Customer subsidiaries and statements of accounts.",
+      "Payments.",
+      "Purchasing, sales, and inventory.",
+      "Accounting journals and reporting.",
+    ],
+    technologies: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX", "SQL"],
+    architecture:
+      "Established CodeIgniter application where sales, purchasing, inventory, billing, and accounting workflows share the same business data.",
+    challenges: [
+      "Customized reports and fields for new clients while preserving the standard product.",
+      "Maintained integrations between sales, purchasing, inventory, billing, and accounting workflows.",
+    ],
+    impact: [
+      "Maintained billing functionality for 3 clients.",
+    ],
   },
   {
-    title: "Business Management System",
-    image: "/images/projects/business-management-system.png",
-    tags: ["PHP", "Codeigniter", "MySQL", "Ajax", "Jquery", "Business Management"],
+    title: "Clinic Management System",
+    image: "/images/projects/clinic-management-system.png",
+    tags: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX"],
+    role: "Full-Stack Engineer responsible for ongoing maintenance and feature development.",
+    ownership:
+      "Took over the established system after the original developer left and continued development for the client.",
     description:
-      "Maintained a business management system covering Bill of Materials, Invoicing, Job Orders, and Variation Orders for multiple clients.",
+      "An internal clinic management system used by a private nephrology clinic for patient information and day-to-day clinical workflows.",
+    features: [
+      "Patient information and history.",
+      "Prescription and follow-up workflows.",
+      "Clinical History and Medical Clearance.",
+      "Admitting Order, Kidney Biopsy, and Dietary Referral modules.",
+      "Export to Excel and printing of patient information.",
+    ],
+    technologies: ["CodeIgniter", "PHP", "MySQL", "jQuery", "AJAX"],
+    challenges: [
+      "Maintained an established application while adding new clinical modules.",
+      "Resolved data and formatting issues such as dates not saving and patient billing number formatting.",
+    ],
+    impact: [
+      "Supported daily operations for 1 private clinic.",
+    ],
   },
   {
-    title: "Church System",
-    image: "/images/projects/church-system.png",
-    tags: ["PHP", "CodeIgniter", "MySQL", "Ajax", "jQuery", "Tailwind"],
+    title: "WordPress Marketing Application",
+    image: "/images/projects/wordpress-marketing-application.png",
+    tags: ["WordPress", "PHP", "ACF", "JavaScript", "CSS"],
+    role: "Full-Stack/WordPress developer maintaining an established marketing application.",
+    ownership:
+      "Implemented client-requested pages, sections, content, pricing changes, and template reskins based on Figma designs.",
     description:
-      "A church management system for managing members, records, schedules, and other administrative activities, designed to streamline day-to-day church operations.",
-  },
-  {
-    title: "Enrollment System",
-    image: "/images/projects/enrollment-system.png",
-    tags: ["PHP", "CodeIgniter", "MySQL", "Ajax", "jQuery", "Tailwind"],
-    description:
-      "A student enrollment and academic management system for handling student records, enrollment, schedules, and related administrative processes.",
+      "A WordPress marketing application supporting the Traffic School business, with client-facing pages for courses, pricing, reviews, and related content.",
+    features: [
+      "New marketing sections and pages.",
+      "Front page, About, Course, Cost, and Reviews template updates.",
+      "Client-requested pricing and content changes.",
+      "Backend content management using plugins and ACF.",
+    ],
+    technologies: ["WordPress", "PHP", "ACF", "JavaScript", "CSS", "Figma"],
+    challenges: [
+      "Implemented Figma designs manually within existing WordPress templates.",
+      "Extended an established marketing application without rebuilding its underlying platform.",
+    ],
+    impact: [
+      "Maintained and enhanced an established production marketing application.",
+    ],
   },
 ];
 
@@ -187,7 +378,7 @@ export const experienceTimeline = [
     org: "Bycodeworks",
     period: "August 2021 – August 2026",
     points: [
-      "Served as Lead Programmer, guiding technical implementation, assigning development tasks to a team of 3 developers, and overseeing development activities, code reviews, QA, and deployments.",
+      "Joined as a hands-on Senior Software Engineer and later took on Lead Programmer responsibilities, including assigning development tasks to a team of 3 developers and reviewing/QA’ing their work.",
       "Maintained and enhanced Traffic School and WordPress-based marketing applications, developing full-stack features, resolving issues, and improving system functionality based on client requirements.",
       "Integrated and maintained third-party services and APIs, including Stripe, EasyPost, Auth0, BlueNotary, CleverTap, Intercom, Plaid, Proof, Reviews.io, SendGrid, and VWO.",
       "Collaborated with clients and developers to translate business requirements into technical solutions, proactively improving system maintainability and coordinating stable releases from development through QA and deployment.",
@@ -220,21 +411,18 @@ export const experienceTimeline = [
 export const heroSkills = [
   { name: "PHP", logo: "/images/technologies/php.svg" },
   { name: "Laravel", logo: "/images/technologies/laravel.svg" },
-  { name: "CodeIgniter", logo: "/images/technologies/codeigniter.svg" },
   { name: "React", logo: "/images/technologies/react.svg" },
-  { name: "Vue", logo: "/images/technologies/vue.svg" },
-  { name: "WordPress", logo: "/images/technologies/wordpress.svg" },
   { name: "MySQL", logo: "/images/technologies/mysql.svg" },
-  { name: "Figma", logo: "/images/technologies/figma.svg" },
-  { name: "Photoshop", logo: "/images/technologies/photoshop.svg" },
+  { name: "CodeIgniter", logo: "/images/technologies/codeigniter.svg" },
+  { name: "WordPress", logo: "/images/technologies/wordpress.svg" },
 ];
 
 export const NAV = [
   { id: "hero", label: "hero" },
   { id: "about", label: "about" },
-  { id: "skills", label: "skills" },
   { id: "experiences", label: "experiences" },
   { id: "projects", label: "projects" },
+  { id: "skills", label: "skills" },
   { id: "services", label: "services" },
   { id: "academic", label: "academic" },
   { id: "contact", label: "contact" },
