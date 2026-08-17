@@ -12,7 +12,7 @@ function ProjectCard({ project, c, index, onOpenDetails, onOpenLightbox }) {
           <button
             onClick={() => onOpenDetails(project)}
             className="block w-full text-left"
-            aria-label={`Open ${project.title} case study`}
+            aria-label={`Open ${project.title} project`}
           >
             <img
               src={project.image}
@@ -84,7 +84,7 @@ function ProjectCard({ project, c, index, onOpenDetails, onOpenLightbox }) {
             onClick={() => onOpenDetails(project)}
             className={`inline-flex items-center gap-1.5 text-xs font-mono ${c.accent} ${c.hoverAccent}`}
           >
-            View case study <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
+            View Project <ArrowRight size={13} className="transition-transform group-hover:translate-x-0.5" />
           </button>
         </div>
       </article>
@@ -102,8 +102,7 @@ export default function Projects({ c, onOpenLightbox, onOpenDetails }) {
         <p className={`font-mono text-sm ${c.accent} mb-2`}>/projects</p>
         <h2 className="text-2xl font-bold mb-2">Projects</h2>
         <p className={`text-sm max-w-2xl leading-relaxed ${c.muted} mb-8`}>
-          Selected case studies showing what the systems do, what I owned, the
-          technologies and integrations involved, and the problems I solved.
+          A selection of systems I've built, maintained, and improved, highlighting my technical ownership, architecture, integrations, and the problems I solved.
         </p>
       </Reveal>
 
