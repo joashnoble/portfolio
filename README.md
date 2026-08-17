@@ -44,36 +44,38 @@ My personal portfolio website showcasing my experience, technical skills, select
 ```text
 portfolio/
 ├── public/
-│   └── images/              # Portfolio images
+│   └── images/                  # Portfolio images
 │
-src/
-├── components/
-│   ├── common/
-│   │   ├── Lightbox.jsx
-│   │   ├── Reveal.jsx
-│   │   ├── SkillBar.jsx
-│   │   └── Timeline.jsx
+├── src/
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Lightbox.jsx
+│   │   │   ├── ProjectDetails.jsx
+│   │   │   ├── Reveal.jsx
+│   │   │   ├── SkillBar.jsx
+│   │   │   └── Timeline.jsx
+│   │   │
+│   │   ├── layout/
+│   │   │   ├── Footer.jsx
+│   │   │   └── Header.jsx
+│   │   │
+│   │   └── sections/
+│   │       ├── About.jsx
+│   │       ├── Academic.jsx
+│   │       ├── Contact.jsx
+│   │       ├── Experience.jsx
+│   │       ├── Hero.jsx
+│   │       ├── Projects.jsx
+│   │       ├── Services.jsx
+│   │       └── Skills.jsx
 │   │
-│   ├── layout/
-│   │   ├── Footer.jsx
-│   │   └── Header.jsx
+│   ├── data/
+│   │   └── site.js
 │   │
-│   └── sections/
-│       ├── About.jsx
-│       ├── Academic.jsx
-│       ├── Contact.jsx
-│       ├── Experience.jsx
-│       ├── Hero.jsx
-│       ├── Projects.jsx
-│       ├── Services.jsx
-│       └── Skills.jsx
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
 │
-├── data/
-│   └── site.js
-│
-├── App.jsx
-├── index.css
-└── main.jsx
 ├── .gitignore
 ├── index.html
 ├── package.json
