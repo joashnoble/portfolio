@@ -3,6 +3,7 @@ import { ArrowUp } from "lucide-react";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
 import Lightbox from "./components/common/Lightbox";
+import ProjectDetails from "./components/common/ProjectDetails";
 import Hero from "./components/sections/Hero";
 import About from "./components/sections/About";
 import Services from "./components/sections/Services";
@@ -32,6 +33,7 @@ export default function App() {
   const [theme, setTheme] = useState("dark");
   const [menuOpen, setMenuOpen] = useState(false);
   const [lightboxProject, setLightboxProject] = useState(null);
+  const [projectDetails, setProjectDetails] = useState(null);
   const [zoom, setZoom] = useState(1);
   const [showTop, setShowTop] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
@@ -78,6 +80,10 @@ export default function App() {
     setLightboxProject(project);
     setZoom(1);
   };
+
+  const openProjectDetails = (project) => setProjectDetails(project);
+
+  const closeProjectDetails = () => setProjectDetails(null);
 
   const closeLightbox = () => {
     setLightboxProject(null);
@@ -137,9 +143,13 @@ export default function App() {
         <div className="max-w-4xl mx-auto px-5 sm:px-8 py-14 lg:py-20">
           <Hero c={c} />
           <About c={c} />
-          <Skills c={c} />
           <Experience c={c} />
-          <Projects c={c} onOpenLightbox={openLightbox} />
+          <Projects
+            c={c}
+            onOpenLightbox={openLightbox}
+            onOpenDetails={openProjectDetails}
+          />
+          <Skills c={c} />
           <Services c={c} />
           <Academic c={c} />
           <Contact c={c} dark={dark} />
@@ -157,6 +167,13 @@ export default function App() {
           <ArrowUp size={18} />
         </button>
       )}
+
+      <ProjectDetails
+        project={projectDetails}
+        c={c}
+        onClose={closeProjectDetails}
+        onOpenLightbox={openLightbox}
+      />
 
       <Lightbox
         project={lightboxProject}
