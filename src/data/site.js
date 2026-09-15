@@ -2,7 +2,7 @@ import {
   Briefcase, FolderGit2, Users, Server, Monitor, Layout, Globe, Plug, Database, Code2, Wrench, GitBranch, 
 } from "lucide-react";
 
-export const RESUME_URL = "/Joash_Noble_Senior_Software_Engineer_Resume.pdf";
+export const RESUME_URL = "/Joash_Noble_Fullstack_Developer_CV.pdf";
 
 export const SOCIALS = {
   github: "https://github.com/joashnoble",
